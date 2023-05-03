@@ -7,9 +7,51 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+Console.Clear();
+Console.Write("Введите количество элементов массива: ");
+int quantity = int.Parse(Console.ReadLine());            // вводим пользовательскую переменную обозначающую длину массива
+string[] stringArray = new string[quantity];             // объявляем новый массив "stringArray" с уже обозначенной пользователем длиной
+array(stringArray);                                      // запускаем метод выборки из введённых пользователем данных <=3 и их записи в новый массив
+printArray(data(stringArray));                           // запускаем метод вывода на печать
 
+void array(string[] stringArray)                         // метод запроса ввода данных у пользователя и составления массива "stringArray"
+{
+  for (int i = 0; i < stringArray.Length; i++)             // для условия что i не превышает длины массива указанной пользователем, выполняем следующее действие
+  {
+    Console.Write($"Введите {i + 1}й элемент массива: ");  // просим ввести пользователя каждый элемент массива (буквы, цифры, символы), начиная с первого
+    stringArray[i] = Console.ReadLine();                   // присваиваем каждому элементу массива "stringArray" элемент введённый пользователем
+  }
+}
 
+string[] data(string[] stringArray)                      // метод выборки из введённых данных <=3 значений и их записи в новый массив
+{
+  int n = 0;                                             // новая переменная определяющая длину будущего массива
+  for (int i = 0; i < stringArray.Length; i++)           // цикл определения длины будущего массива (n)
+  {
+    if (stringArray[i].Length <= 3)                      // при выполнении условия
+      n++;                                               // записывается значение и переходим на следующую итерацию
+  }
+  string[] result = new string[n];                       // новый массив с полученной длиной "n", который будет состоять из данных <=3
+  int j = 0;
+  for (int i = 0; i < stringArray.Length; i++)           // цикл для записи значений в новый массив
+  {
+    if (stringArray[i].Length <= 3)                      // при выполнении условия
+    {
+      result[j] = stringArray[i];                        // записываем элемент в массив
+      j++;                                               // переходим на следующую итерацию
+    }
+  }
+  return result;                                         // возвращаем полученный массив
+}
 
-
-
+void printArray(string[] stringArray)                     // метод вывода на печать
+{
+  Console.Write("[");
+  for (int i = 0; i < stringArray.Length; i++)
+  {
+    Console.Write($"“{stringArray[i]}”");
+    if (i != stringArray.Length - 1) Console.Write(",");  // т.о. избавляемся от "лишней" запятой
+  }
+  Console.Write("]");
+}
 
