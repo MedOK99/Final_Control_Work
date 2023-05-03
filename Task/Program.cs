@@ -11,8 +11,8 @@ Console.Clear();
 Console.Write("Введите количество элементов массива: ");
 int quantity = int.Parse(Console.ReadLine());            // вводим пользовательскую переменную обозначающую длину массива
 string[] stringArray = new string[quantity];             // объявляем новый массив "stringArray" с уже обозначенной пользователем длиной
-array(stringArray);                                      // запускаем метод выборки из введённых пользователем данных <=3 и их записи в новый массив
-printArray(data(stringArray));                           // запускаем метод вывода на печать
+array(stringArray);                                      // запускаем метод запроса ввода данных у пользователя и составления массива "stringArray"
+printArray(data(stringArray));                           // запускаем метод вывода на печать, который выводит массив "data(stringArray)" полученный методом выборки из введённых данных <=3 значений и их записи в новый массив
 
 void array(string[] stringArray)                         // метод запроса ввода данных у пользователя и составления массива "stringArray"
 {
@@ -50,7 +50,7 @@ void printArray(string[] stringArray)                     // метод выво
   for (int i = 0; i < stringArray.Length; i++)
   {
     Console.Write($"“{stringArray[i]}”");
-    if (i != stringArray.Length - 1) Console.Write(",");  // т.о. избавляемся от "лишней" запятой
+    if (i != stringArray.Length - 1) Console.Write(",");  // т.о. "избавляемся от лишней запятой"
   }
   Console.Write("]");
 }
