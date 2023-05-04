@@ -46,7 +46,7 @@ string[] data(string[] stringArray)                      // метод выбо�
 
 void printArray(string[] stringArray)                     // метод вывода на печать
 {
-  Console.Write("[");
+  Console.Write("\n[");
   for (int i = 0; i < stringArray.Length; i++)
   {
     Console.Write($"“{stringArray[i]}”");
